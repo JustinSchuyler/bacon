@@ -1,4 +1,3 @@
-
 import { DEPOSIT_CATEGORY, EXPENSE_CATEGORY, TRANSACTION_TYPE } from '../../constants/Constants'
 
 export interface ITransaction {

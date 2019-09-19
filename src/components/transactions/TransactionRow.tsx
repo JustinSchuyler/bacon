@@ -1,6 +1,6 @@
 import React from 'react'
 import { ITransaction } from '../../models/interfaces/ITransaction'
-import { TRANSACTION_TYPE, DEPOSIT_CATEGORY, EXPENSE_CATEGORY } from '../../constants/Constants'
+import { DEPOSIT_CATEGORY, EXPENSE_CATEGORY } from '../../constants/Constants'
 
 export const TransactionRow = (props: ITransaction): JSX.Element => {
     return (
