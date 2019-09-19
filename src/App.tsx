@@ -2,6 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { FilterableTransactionTable } from './components/transactions/FilterableTransactionTable'
+import { FILTERABLE_TRANSACTION_TABLE } from './data/TransactionStore'
+
 const App: React.FC = () => {
   return (
     <div className="App">
@@ -19,6 +22,11 @@ const App: React.FC = () => {
           Learn React
         </a>
       </header>
+      <div>
+        <FilterableTransactionTable 
+          transactionTable={FILTERABLE_TRANSACTION_TABLE.transactionTable}
+        />
+      </div>
     </div>
   );
 }
