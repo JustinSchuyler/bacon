@@ -8,7 +8,7 @@ export const FilterableTransactionTable = (props: IFilterableTransactionTable): 
         <div>
             <FilterBar />
             <TransactionTable
-            transactions={props.transactionTable.transactions}
+            transactions={props.transactions}
             />
         </div>
     );

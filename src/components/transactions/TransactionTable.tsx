@@ -6,9 +6,11 @@ export const TransactionTable = (props: ITransactionTable): JSX.Element => {
     const rows = props.transactions.map(transaction => {
         return (
             <TransactionRow
+                key={transaction.id}
+                id={transaction.id}
                 account={transaction.account}
                 date={transaction.date}
-                category={transaction.category}
+                //category={transaction.category}
                 amount={transaction.amount}
                 transactionType={transaction.transactionType}
             />
@@ -21,7 +23,7 @@ export const TransactionTable = (props: ITransactionTable): JSX.Element => {
                 <tr>
                     <th>Account</th>
                     <th>Date</th>
-                    <th>Category</th>
+                    {/* <th>Category</th> */}
                     <th>Amount</th>
                 </tr>
             </thead>

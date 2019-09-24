@@ -1,5 +1,5 @@
-import { ITransactionTable } from './ITransactionTable'
+import { ITransaction } from './ITransaction';
 
 export interface IFilterableTransactionTable {
-    transactionTable: ITransactionTable
+    transactions: Array<ITransaction>
 }

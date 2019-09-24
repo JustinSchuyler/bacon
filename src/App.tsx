@@ -1,34 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import axios from 'axios'
 import './App.css';
 
 import { FilterableTransactionTable } from './components/transactions/FilterableTransactionTable'
-import { FILTERABLE_TRANSACTION_TABLE } from './data/TransactionStore'
+import { IFilterableTransactionTable } from './models/interfaces/IFilterableTransactionTable';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <div>
-        <FilterableTransactionTable 
-          transactionTable={FILTERABLE_TRANSACTION_TABLE.transactionTable}
-        />
+class App extends Component<any, IFilterableTransactionTable>{
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      transactions: []
+    }
+  }
+
+  componentDidMount() {
+    axios.get("http://localhost:9000/api/transactions")
+      .then( res => {
+        console.log(res.data)
+        this.setState({
+          transactions: res.data
+        })
+      })
+  }
+
+  render(): JSX.Element {
+    return (
+      <div className="App">
+        <div>
+          <FilterableTransactionTable 
+            transactions={ this.state.transactions }
+          />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
